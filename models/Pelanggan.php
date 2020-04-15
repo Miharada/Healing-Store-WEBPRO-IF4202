@@ -8,7 +8,7 @@ class Pelanggan extends CI_model{
     public function tambahPelanggan(){
         $data = array(
             'username' => $this->input->post('username'),
-            'nama_pelanggan' => $this->input->post('nama_pelanggan'),
+            'alamat' => $this->input->post('alamat'),
             'password' => $this->input->post('password'),
             'no_hp' => $this->input->post('no_hp'),
 			'email' => $this->input->post('email')
@@ -26,7 +26,7 @@ class Pelanggan extends CI_model{
         $id = $this->input->post('username');
         $data=array(
             'username' => $this->input->post('username'),
-            'nama_pelanggan' => $this->input->post('nama_pelanggan'),
+            'alamat' => $this->input->post('alamat'),
             'password' => $this->input->post('password'),
             'no_hp' => $this->input->post('no_hp'),
 			'email' => $this->input->post('email')
