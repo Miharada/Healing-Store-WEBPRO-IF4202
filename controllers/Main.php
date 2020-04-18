@@ -11,16 +11,33 @@ class Main extends CI_Controller
 		$this->load->model('Obat');
 		$this->load->model('Pelanggan');
 		$this->load->model('Transaksi');
+		$this->load->model('Login');
+
 		$this->load->library('form_validation');
 		$this->load->helper('url');
+		$this->load->library('session');
 	}
 
 	public function index()
-	{
-		$data['judul'] = 'Daftar Admin';
-		$data['page'] = 'ListAdmin';
-		#$data['data_Admin'] = $this->Admin->getAllAdmin();
-		$this->load->view('Admin/ListAdmin',$data);
+	{	
+		$content['admin']='';
+		$content['track'] = "/Main/viewLogin";
+		$content['log'] = "login";
+		$this->load->view('home_page',$content);
+	}
+	
+	public function utama(){
+		$content['admin']='';
+		$content['track'] = "/Main/viewLogin";
+		$content['log'] = "login";
+		if($this->session->userdata('username') || $this->session->userdata('admin') ){
+			if($this->session->userdata('admin')){
+				$content['admin']="Admin";
+			}
+			$content['track'] = "/Main/logout";
+			$content['log'] = "logout";
+		}
+		$this->load->view('home_page',$content);
 	}
 
 	//BAGIAN ADMIN
@@ -69,10 +86,66 @@ class Main extends CI_Controller
 		$content = $this->Pelanggan->getAllPelanggan();
 		echo json_encode($content);
 	}
+	//HALAMAN REGISTER
+	public function tambahPelanggan(){
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('alamat','alamat','required');
+		$this->form_validation->set_rules('password','password','required');
+		$this->form_validation->set_rules('no_hp','no_hp','required');
+		$this->form_validation->set_rules('repeat-password','repeat-password','required');
 
-	public function tambahPelanggant(){
-		$data = $this->Pelanggan->tambahPelanggan();
-		echo json_encode($data);
+		if($this->form_validation->run() == false){
+			$this->load->view('Login/Register');
+		}
+		else{
+			$data = $this->Pelanggan->tambahPelanggan();
+			redirect('Main/utama');
+		}
+	}
+
+	//HALAMAN LOGIN
+	public function viewLogin(){
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('password','password','required');
+		
+		if($this->form_validation->run() == false){
+			$this->load->view('Login/Login');
+		}
+		else{
+			$cek = $this->Login->check_username();
+			if($cek){
+				$username = $this->input->post('username');
+				$this->session->set_userdata('username',$username);
+				redirect('Main/utama');
+			}
+			else{
+				$this->load->view('Login/Login');
+			}
+		}
+	}
+	public function viewLoginAdmin(){
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('password','password','required');
+		
+		if($this->form_validation->run() == false){
+			$this->load->view('Login/LoginAdmin');
+		}
+		else{
+			$cek = $this->Login->check_usernameA();
+			if($cek){
+				$username = $this->input->post('username');
+				$this->session->set_userdata('admin',$username);
+				redirect('Main/utama');
+			}
+			else{
+				$this->load->view('Login/LoginAdmin');
+			}
+		}
+	}
+	//LOGOUT
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('Main/utama');
 	}
 
 	public function hapusPelanggan(){
@@ -99,6 +172,7 @@ class Main extends CI_Controller
 		$data = $this->Transaksi->hapusTransaksi();
 		echo json_encode($data);
 	}
+
 }
 
 ?>
