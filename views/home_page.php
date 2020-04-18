@@ -5,7 +5,8 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+
 		
 		<title>HOME PAGE</title>
 		 <style>
@@ -56,7 +57,7 @@
 				<div align="right" id="div2">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					  <li class="nav-item active">
-						<a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="#"><?=$admin?><span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item active">
 						<a class="nav-link" href="#">Menu<span class="sr-only">(current)</span></a>
@@ -69,9 +70,9 @@
 					  </li>
 					  
 					  <li class="nav-item">
-						<a class="nav-link" href="#" 
-						style="background-color : #f7fbff; text-underline-position: under; padding: 3px 4px;">
-						[ ADMIN ]</a>
+						<a class="nav-link" href="<?=site_url().$track?>" 
+						style="background-color : #f7fbff; text-underline-position: under;">
+						<?=$log?></a>
 					  </li>
 					   
 				</ul>
