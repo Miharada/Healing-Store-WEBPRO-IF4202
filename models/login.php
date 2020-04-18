@@ -1,21 +1,14 @@
 <?php
 class login extends CI_model{
 
-    public function check_username($username){
-        $this->db->select('username');
+    public function check_username(){
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
         $this->db->where('username',$username);
-        $result = $this->db->get('user') -> result_array();
+        $this->db->where('password',$password);
+        $result = $this->db->get('pelanggan') -> result_array();
 
-        if($result->num_rows() == 1){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    public function login($data){
-        $x=get_profile($data['username']);
-        if($x['password'] == $data['password']){
+        if(count($result)>0){
             return true;
         }
         else{
@@ -23,9 +16,19 @@ class login extends CI_model{
         }
     }
 
-    public function get_profile($username){
-        $this->db->where('username'.$username);
-        return $this->db->get('user');
+    public function check_usernameA(){
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $this->db->where('username',$username);
+        $this->db->where('password',$password);
+        $result = $this->db->get('admin') -> result_array();
+
+        if(count($result)>0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 ?>
