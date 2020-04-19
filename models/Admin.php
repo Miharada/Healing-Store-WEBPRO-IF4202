@@ -10,7 +10,6 @@ class Admin extends CI_model{
             'id_admin' => $this->input->post('id_admin'),
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
-            'no_hp' => $this->input->post('no_hp'),
 			'email' => $this->input->post('email')
         );
         return $this->db->insert('admin',$data);
@@ -28,7 +27,6 @@ class Admin extends CI_model{
             'id_admin' => $this->input->post('id_admin'),
             'username' => $this->input->post('username'),
             'password' => $this->input->post('password'),
-            'no_hp' => $this->input->post('no_hp'),
 			'email' => $this->input->post('email')
         );
      
