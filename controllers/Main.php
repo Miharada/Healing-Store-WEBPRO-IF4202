@@ -22,6 +22,7 @@ class Main extends CI_Controller
 	{	
 		$content['admin']='';
 		$content['track'] = "/Main/viewLogin";
+		$content['track2'] = "/Main/index";
 		$content['log'] = "login";
 		$this->load->view('home_page',$content);
 	}
@@ -29,6 +30,7 @@ class Main extends CI_Controller
 	public function utama(){
 		$content['admin']='';
 		$content['track'] = "/Main/viewLogin";
+		$content['track2'] = "/Main/utama";
 		$content['log'] = "login";
 		if($this->session->userdata('username') || $this->session->userdata('admin') ){
 			if($this->session->userdata('admin')){
@@ -38,6 +40,23 @@ class Main extends CI_Controller
 			$content['log'] = "logout";
 		}
 		$this->load->view('home_page',$content);
+	}
+	//HALAMAN ADMIN
+	public function viewHomeAdmin(){
+		$this->load->view('home_admin');
+	}
+
+	public function viewManageAdmin(){
+		$this->load->view('Admin/ListAdmin');
+	}
+	public function viewManageObat(){
+		$this->load->view('Obat/ListObat');
+	}
+	public function viewManagePelanggan(){
+		$this->load->view('Pelanggan/ListPelanggan');
+	}
+	public function viewManageTransaksi(){
+		$this->load->view('Transaksi/ListTransaksi');
 	}
 
 	//BAGIAN ADMIN
@@ -99,6 +118,8 @@ class Main extends CI_Controller
 		}
 		else{
 			$data = $this->Pelanggan->tambahPelanggan();
+			$username = $this->input->post('username');
+			$this->session->set_userdata('username',$username);
 			redirect('Main/utama');
 		}
 	}
@@ -123,6 +144,7 @@ class Main extends CI_Controller
 			}
 		}
 	}
+
 	public function viewLoginAdmin(){
 		$this->form_validation->set_rules('username','username','required');
 		$this->form_validation->set_rules('password','password','required');
