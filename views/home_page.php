@@ -57,10 +57,10 @@
 				<div align="right" id="div2">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					  <li class="nav-item active">
-						<a class="nav-link" href="#"><?=$admin?><span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="<?=site_url().'/Main/viewHomeAdmin'?>"><?=$admin?><span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item active">
-						<a class="nav-link" href="#">Menu<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="<?=site_url().$track2?>">Menu<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
 						<a class="nav-link" href="#">Obat</a>
@@ -92,7 +92,7 @@
 				<h4>We are here to help you find </h4>
 				<h4>your medic kit </h4>
 				<br>
-				<button type="button" class="btn btn-danger" style="width: 40%; font-size: 25px;">Sign Up</button>
+				<a href="<?=site_url()?>/Main/tambahPelanggan"  class="btn btn-danger" style="width: 40%; font-size: 25px;">Sign Up</a>
 			</div>
 
 	</body>

@@ -10,7 +10,7 @@
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
 
 		
-		<title>Admin</title>
+		<title>Pelanggan</title>
 		 <style>
           #div2 {
                 top: 18;
@@ -31,7 +31,7 @@
     </head>
     <body background="<?php echo base_url('assets/bg.png') ?>">
 
-<? // Navbar ?>	
+    <? // Navbar ?>	
 		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color : red;">
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -44,10 +44,10 @@
 				<div align="right" id="div2">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					  <li class="nav-item active">
-						<a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="<?=site_url().'/Main/viewHomeAdmin'?>">Admin<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item active">
-						<a class="nav-link" href="#">Menu<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="<?=site_url().'/Main/Utama'?>">Menu<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
 						<a class="nav-link" href="#">Obat</a>
@@ -55,26 +55,20 @@
 					   <li class="nav-item">
 						<a class="nav-link" href="#">Find</a>
 					  </li>
+					  
 					  <li class="nav-item">
-						<a class="nav-link" href="#">Admin</a>
+						<a class="nav-link" href="<?=site_url().'/Main/logout'?>" 
+						style="background-color : #f7fbff; text-underline-position: under;">
+						Logout</a>
 					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="#" 
-						style="background-color : #f7fbff; text-underline-position: under; padding: 3px 4px;">
-						Log In</a>
-					  </li>
-					   <li class="nav-item">
-							<a class="nav-link" href="#" 
-							style="background-color:#fff0f0; text-underline-position: under;padding: 3px 4px; color: red">
-						<u>Sign Up</u></a>
-					  </li>
+					   
 				</ul>
 				</div>
 		</nav>
 
   <div class="container" id ="cont1" style = "margin-top: 30px;">
   <center>
-  <h2 >Daftar Admin</h2>
+  <h2 >Daftar Pelanggan</h2>
 	
 <? // Search Admin ?>	
     <div class="row mt-3">
@@ -94,11 +88,11 @@
 			<table class="table table-bordered table-sm" >
         <thead style = "background-color: #ff554d;">
             <tr>
-					    <th scope="col" class="text-center">ID</th>
-              <th scope="col" class="text-center">Nama Obat</th>
-              <th scope="col" class="text-center">Kategori Obat</th>
-              <th scope="col" class="text-center">Harga Obat</th>
-              <th scope="col" class="text-center">Deskripsi</th>
+					    <th scope="col" class="text-center">Username</th>
+              <th scope="col" class="text-center">Password</th>
+              <th scope="col" class="text-center">No Hp</th>
+              <th scope="col" class="text-center">Email</th>
+              <th scope="col" class="text-center">Alamat</th>
 					    <th scope="col" class="text-center">Action</th>
             </tr>
         </thead>

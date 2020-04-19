@@ -14,7 +14,41 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Halaman Registrasi</title>
+    </head>
+
+<body>
+<? // Navbar ?>	
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color : red;">
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+					<img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
+					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALTH STORE</a>
+				   </div>
+
+				<div align="right" id="div2">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					  <li class="nav-item active">
+						<a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+					  </li>
+					  <li class="nav-item active">
+						<a class="nav-link" href="<?= site_url().'/Main/utama'?>">Menu<span class="sr-only">(current)</span></a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">Obat</a>
+					  </li>
+					   <li class="nav-item">
+						<a class="nav-link" href="#">Find</a>
+					  </li>
+					
+					   
+				</ul>
+				</div>
+		</nav>
+
 
 <div class="container">
 <div class="card">
@@ -65,6 +99,7 @@
     </div>     
     <p class="text-center">Have an account? <a href="<?=site_url()?>/Main/viewLogin">Log In</a> </p>  <? //INI KE CONTROLLER DULU ?>                                                           
 </form>
-</head>
+</body>
+
 
 </html>

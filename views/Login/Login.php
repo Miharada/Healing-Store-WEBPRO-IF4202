@@ -28,7 +28,7 @@
 						<a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item active">
-						<a class="nav-link" href="#">Menu<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="<?=site_url().'/Main/utama'?>" >Menu<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
 						<a class="nav-link" href="#">Obat</a>
