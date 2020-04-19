@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2020 at 01:42 PM
+-- Generation Time: Apr 19, 2020 at 05:33 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -40,10 +40,10 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `email`) VALUES
-(1, 'Mega Adi K', '', ''),
-(2, 'Tiwa', '', ''),
-(3, 'Stefanus Wisnu', '', ''),
-(4, 'Mahardika', '', '');
+(1, 'Mega Adi K', 'megaadi', 'mega@gmail.com'),
+(2, 'Tiwa', '1301180186', 'tiwa@gmail.com'),
+(3, 'Stefanus Wisnu', 'wisnustef', 'wisnu@gmail.com'),
+(4, 'Mahardika', 'mahardika', 'dika@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,14 @@ CREATE TABLE `obat` (
   `deskripsi` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `obat`
+--
+
+INSERT INTO `obat` (`id_obat`, `nama_obat`, `kategori_obat`, `harga_obat`, `deskripsi`) VALUES
+(1, 'Paracetamol', 'Demam', 25000, 'Obat Penurun Deman '),
+(2, 'Vitacimin', 'Vitamin', 5000, 'Vitamin C terbaik dunia');
+
 -- --------------------------------------------------------
 
 --
@@ -67,19 +75,26 @@ CREATE TABLE `obat` (
 
 CREATE TABLE `pelanggan` (
   `username` varchar(15) NOT NULL,
-  `nama_pelanggan` varchar(30) NOT NULL,
   `password` varchar(15) NOT NULL,
   `no_hp` varchar(12) NOT NULL,
-  `email` varchar(30) NOT NULL
+  `email` varchar(30) NOT NULL,
+  `alamat` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`username`, `password`, `no_hp`, `email`, `alamat`) VALUES
+('1301180186', '123456', '81321073332', 'scutumserpens29@gmail.com', 'Kalijati');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transasksi`
+-- Table structure for table `transaksi`
 --
 
-CREATE TABLE `transasksi` (
+CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `tgl_transaksi` date NOT NULL,
   `jumlah` int(11) NOT NULL
@@ -108,9 +123,9 @@ ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `transasksi`
+-- Indexes for table `transaksi`
 --
-ALTER TABLE `transasksi`
+ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
@@ -127,12 +142,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `transasksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
-ALTER TABLE `transasksi`
+ALTER TABLE `transaksi`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
