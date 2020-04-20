@@ -37,8 +37,8 @@ class Pelanggan extends CI_model{
         return $this->db->update('pelanggan',$data);
     }
     
-    public function cariPelanggan(){
-        $keyword = $this->input->post('keyword',true);
+    public function getPelanggan($username){
+        $this->db->where('username',$username);
         return $this->db->get('pelanggan')->result_array();
     }
 }
