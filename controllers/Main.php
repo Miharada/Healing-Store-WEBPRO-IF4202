@@ -21,6 +21,7 @@ class Main extends CI_Controller
 	public function index()
 	{	
 		$content['admin']='';
+		$content['profile']='';
 		$content['track'] = "/Main/viewLogin";
 		$content['track2'] = "/Main/index";
 		$content['log'] = "login";
@@ -29,12 +30,16 @@ class Main extends CI_Controller
 	
 	public function utama(){
 		$content['admin']='';
+		$content['profile']='';
 		$content['track'] = "/Main/viewLogin";
 		$content['track2'] = "/Main/utama";
 		$content['log'] = "login";
 		if($this->session->userdata('username') || $this->session->userdata('admin') ){
 			if($this->session->userdata('admin')){
 				$content['admin']="Admin";
+			}
+			else{
+				$content['profile']='Profile';
 			}
 			$content['track'] = "/Main/logout";
 			$content['log'] = "logout";
@@ -142,6 +147,25 @@ class Main extends CI_Controller
 			else{
 				$this->load->view('Login/Login');
 			}
+		}
+	}
+
+	//UPDATE PROFILE
+	public function UpdateProfile(){
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('alamat','alamat','required');
+		$this->form_validation->set_rules('password','password','required');
+		$this->form_validation->set_rules('no_hp','no_hp','required');
+		$this->form_validation->set_rules('repeat-password','repeat-password','required');
+		$data = $this->session->userdata('username');
+		$dataku['profiled'] = $this->Pelanggan->getPelanggan($data);
+
+		if($this->form_validation->run() == false){
+			$this->load->view('Pelanggan/UpdateProfile',$dataku);
+		}
+		else{
+			$this->Pelanggan->editPelanggan();
+			redirect('Main/utama');
 		}
 	}
 
