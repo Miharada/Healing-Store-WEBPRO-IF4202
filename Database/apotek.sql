@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2020 at 05:33 AM
+-- Generation Time: Apr 20, 2020 at 10:55 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -43,7 +43,7 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `email`) VALUES
 (1, 'Mega Adi K', 'megaadi', 'mega@gmail.com'),
 (2, 'Tiwa', '1301180186', 'tiwa@gmail.com'),
 (3, 'Stefanus Wisnu', 'wisnustef', 'wisnu@gmail.com'),
-(4, 'Mahardika', 'mahardika', 'dika@gmail.com');
+(4, 'Mahardika', 'mahardikaAtt', 'dika@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,8 @@ CREATE TABLE `obat` (
 
 INSERT INTO `obat` (`id_obat`, `nama_obat`, `kategori_obat`, `harga_obat`, `deskripsi`) VALUES
 (1, 'Paracetamol', 'Demam', 25000, 'Obat Penurun Deman '),
-(2, 'Vitacimin', 'Vitamin', 5000, 'Vitamin C terbaik dunia');
+(2, 'Vitacimin', 'Vitamin', 35000, 'Vitamin C terbaik dunia'),
+(3, 'Equa', 'Demam', 1000, 'asdsad');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,9 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`username`, `password`, `no_hp`, `email`, `alamat`) VALUES
-('1301180186', '123456', '81321073332', 'scutumserpens29@gmail.com', 'Kalijati');
+('1301180186', '123456', '81321073332', 'scutumserpens29@gmail.com', 'Karawang'),
+('abc', '555555', '81321073332', 'scutumserpens29@gmail.com', 'Kalijati'),
+('dziem', '111111', '81321073332', 'nurfuad@gmail.com', 'Kalijati');
 
 -- --------------------------------------------------------
 
@@ -114,7 +117,7 @@ ALTER TABLE `admin`
 -- Indexes for table `obat`
 --
 ALTER TABLE `obat`
-  ADD PRIMARY KEY (`id_obat`);
+  ADD PRIMARY KEY (`id_obat`) USING HASH;
 
 --
 -- Indexes for table `pelanggan`
@@ -142,7 +145,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
