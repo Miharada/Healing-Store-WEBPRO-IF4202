@@ -45,6 +45,7 @@
     <body background="<?php echo base_url('assets/bg.png') ?>">
 
 <? // Navbar ?>	
+
 		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color : red;">
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -56,6 +57,9 @@
 
 				<div align="right" id="div2">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					 <li class="nav-item active">
+						<a class="nav-link" href="<?=site_url().'/Main/UpdateProfile'?>"><?=$profile?><span class="sr-only">(current)</span></a>
+					  </li>
 					  <li class="nav-item active">
 						<a class="nav-link" href="<?=site_url().'/Main/viewHomeAdmin'?>"><?=$admin?><span class="sr-only">(current)</span></a>
 					  </li>
