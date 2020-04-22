@@ -1,0 +1,82 @@
+<html>
+    <head>
+		<link rel="shortcut icon" href="<?php echo base_url('assets/logo.png') ?>">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+		
+		<title>OBAT</title>
+		 <style>
+          #div2 {
+                top: 18;
+                position: fixed;
+                right: 49;
+              }
+          a{
+            font-size: 20;
+
+          }
+        li{
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+		
+        </style>
+
+    </head>
+    <body background="<?php echo base_url('assets/bg.png') ?>">
+
+    <? // Navbar ?>	
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color : red;">
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+					<img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
+					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALING STORE</a>
+				   </div>
+
+				<div align="right" id="div2">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		
+					  <li class="nav-item active">
+						<a class="nav-link" href="<?=site_url().'/Main/Utama'?>">Menu<span class="sr-only">(current)</span></a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">Obat</a>
+					  </li>
+					   <li class="nav-item">
+						<a class="nav-link" href="#">Find</a>
+					  </li>
+					  
+					  <li class="nav-item">
+						<a class="nav-link" href="<?=site_url().'/Main/logout'?>" 
+						style="background-color : #f7fbff; text-underline-position: under;">
+						Logout</a>
+					  </li>
+					   
+				</ul>
+				</div>
+		</nav>
+
+	<? // Card Obat ?>	
+		<center>
+		<div class="card" style="width: 18rem;">
+			<h5 style="background-color :red; ">Healing Store</h5>
+	  		<img src="https://cf.shopee.co.id/file/eab379ed7c95b38e0cf0c06ba1c11226" class="card-img-top" alt="..." style = "width: 70%;">
+	 		<div class="card-body">
+	    	<h5 class="card-title">Paracetamol</h5>
+	    	<p class="card-text">
+	    		<p align="left" style="color :orange;">Harga : {ambil data dari DB_obat}</p>
+	    		<p align="left" style="color : blue;">Dosis : {ambil data dari DB_obat}</p>
+	    		<p align="left">deskripsi : {ambil data dari DB_obat}</p>
+	    	</p>
+	    <a href="#" class="btn btn-primary" style="width: 120px;">Beli</a>
+	  </div>
+	  </center>
+
+	</body>
+</html>
