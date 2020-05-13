@@ -20,6 +20,7 @@ class Main extends CI_Controller
 
 	public function index()
 	{	
+		$this->session->set_userdata('username','');//dfdf
 		$content['admin']='';
 		$content['profile']='';
 		$content['track'] = "/Main/viewLogin";
@@ -104,6 +105,68 @@ class Main extends CI_Controller
 		$data = $this->Obat->editObat();
 		echo json_encode($data);
 	}
+	public function ViewObat(){
+		$content['admin']='';
+		$content['profile']='';
+		$content['track'] = "/Main/viewLogin";
+		$content['track2'] = "/Main/utama";
+		$content['log'] = "login";
+		if($this->session->userdata('username') || $this->session->userdata('admin')){
+			$content['track'] = "/Main/logout";
+			$content['log'] = "logout";
+		}
+		$medik = $this->input->post('nama_obat');
+		$this->session->set_userdata('obat','');
+		$this->form_validation->set_rules('nama_obat','nama_obat','required');
+		if($this->form_validation->run() == false){
+			$datas = $this->Obat->getAllObat();
+			$content['datas'] = $datas;
+			$this->load->view('Obat/view_obat',$content);
+			
+		}
+		else{
+			if($this->session->userdata('username')){
+				$this->form_validation->set_rules('alamat','alamat','required');
+				$this->form_validation->set_rules('quantity','quantity','required');
+				$qt = $this->input->post('quantity');
+				$this->session->set_userdata('quantity',$qt);
+				$this->session->set_userdata('obat',$medik);
+				if($this->form_validation->run() == false){
+					$content['data']=$this->Obat->getObat();
+					$content['customer'] = $this->Pelanggan->getPelanggan($this->session->userdata('username'));
+					$this->load->view('Buy/buyobat',$content);
+				}
+				else{
+					
+					redirect('Main/ConfirmBuy');
+				}
+			}
+			else{
+				redirect('Main/viewLogin');
+			}
+			
+		}
+		
+	}
+	public function ConfirmBuy(){
+		$content['data']=$this->Obat->getObat1($this->session->userdata('obat'));
+		$content['customer'] = $this->Pelanggan->getPelanggan($this->session->userdata('username'));
+		$content['qt'] = $this->session->userdata('quantity');
+		
+
+
+		$this->load->view('Buy/chekout',$content);
+		
+	
+			
+		
+
+		
+	}
+	public function AddTransaksi(){
+		$this->Transaksi->tambahTransaksi();
+		redirect('Main/viewObat');
+	}
 
 	//Bagian Pelanggan
 	public function OutputPelanggan(){
@@ -142,9 +205,11 @@ class Main extends CI_Controller
 			if($cek){
 				$username = $this->input->post('username');
 				$this->session->set_userdata('username',$username);
+				$this->session->set_flashdata('category_success', 'Login Berhasil');
 				redirect('Main/utama');
 			}
 			else{
+				$this->session->set_flashdata('category_error', 'Username/Password Salah');
 				$this->load->view('Login/Login');
 			}
 		}
