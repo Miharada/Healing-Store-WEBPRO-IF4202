@@ -4,6 +4,7 @@ class Pelanggan extends CI_model{
     public function getAllPelanggan(){
         return $this->db->get('pelanggan')->result();
     }
+  
 
     public function tambahPelanggan(){
         $data = array(

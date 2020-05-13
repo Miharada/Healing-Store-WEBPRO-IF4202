@@ -8,8 +8,9 @@ class Transaksi extends CI_model{
     public function tambahTransaksi(){
         $data = array(
             'id_transaksi' => $this->input->post('id_transaksi'),
-            'tgl_transaksi' => $this->input->post('tgl_transaksi'),
-            'jumlah' => $this->input->post('jumlah')
+            'username' => $this->session->userdata('username'),
+            'tgl_transaksi' => date('y-m-d'),
+            'jumlah' => $this->session->userdata('quantity1')
         );
         return $this->db->insert('transaksi',$data);
     }
