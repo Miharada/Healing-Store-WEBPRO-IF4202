@@ -38,7 +38,7 @@
 				  </button>
 				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 					<img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
-					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALTH STORE</a>
+					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALING STORE</a>
 				   </div>
 
 				<div align="right" id="div2">
@@ -50,11 +50,8 @@
 						<a class="nav-link" href="<?=site_url().'/Main/Utama'?>">Menu<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="#">Obat</a>
-					  </li>
-					   <li class="nav-item">
-						<a class="nav-link" href="#">Find</a>
-					  </li>
+						<a class="nav-link" href="<?=site_url('Main/ViewObat')?>">Obat</a>
+	
 					  
 					  <li class="nav-item">
 						<a class="nav-link" href="<?=site_url().'/Main/logout'?>" 
@@ -68,7 +65,7 @@
 
   <div class="container" id ="cont1" style = "margin-top: 30px;">
   <center>
-  <h2 >Daftar Admin</h2>
+  <h2 >Daftar Transaksi</h2>
 	
 <? // Search Admin ?>	
     <div class="row mt-3">
@@ -89,6 +86,7 @@
         <thead style = "background-color: #ff554d;">
             <tr>
 					    <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">Username</th>
               <th scope="col" class="text-center">Tanggal Transaksi</th>
               <th scope="col" class="text-center">Jumlah</th>
 					    <th scope="col" class="text-center">Action</th>
@@ -158,6 +156,7 @@
             html+='<tr>' +
                     ''+
                     '<td class="text-center">'+data[i].id_transaksi+ '</td>'+
+                    '<td class="text-center">'+data[i].username+ '</td>'+
                     '<td class="text-center">'+data[i].tgl_transaksi+'</td>'+
                     '<td class="text-center">'+data[i].jumlah+'</td>'+
                                 '<td class="text-center">'+
@@ -189,7 +188,7 @@
       return false;
     });
  
-    //get data for delete Admin
+    //
     $('#table1').on('click','.item_delete',function(){
       var id_transaksi = $(this).data("id_transaksi");
       $('#modal-delete').modal('show');

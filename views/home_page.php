@@ -34,9 +34,12 @@
 				top: 339;
 				left : 200;    
 		}
+		h1{
+			font-family : poppins;
+		}
 		h4{
 			padding-top : 0;
-			font-family : algerian;
+			font-family : poppins;
 		}
 		
         </style>
@@ -52,7 +55,7 @@
 				  </button>
 				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 					<img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
-					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALTH STORE</a>
+					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Poppins;"> HEALING STORE</a>
 				   </div>
 
 				<div align="right" id="div2">
@@ -67,17 +70,18 @@
 						<a class="nav-link" href="<?=site_url().$track2?>">Menu<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="#">Obat</a>
+						<a class="nav-link" href="<?=site_url('Main/ViewObat')?>">Obat</a>
 					  </li>
-					   <li class="nav-item">
-						<a class="nav-link" href="#">Find</a>
-					  </li>
+					  <form class="form-inline my-2 my-lg-0 ">
+                    	<input class="form-control mr-sm-2 " type="search " placeholder="Search " aria-label="Search ">
+                    	<button class="btn btn-outline-danger my-2 my-sm-0 " type=" submit ">Search</button>
+                	  </form>
 					  
 					  <li class="nav-item">
 						<a class="nav-link" href="<?=site_url().$track?>" 
-						style="background-color : #f7fbff; text-underline-position: under;">
-						<?=$log?></a>
+						style="background-color : #f7fbff; text-underline-position: under;"><span class="glyphicon glyphicon-log-in"></span> <?=$log?></a>
 					  </li>
+					  
 					   
 				</ul>
 				</div>
@@ -85,9 +89,13 @@
 
 
 	<? // Home Page ?>	
-			<img src="<?php echo base_url('assets/lampu.png') ?>" width="32%"
+	<?php if ($this->session->flashdata('category_success')) { ?>
+        <div class="alert alert-success"> <?= $this->session->flashdata('category_success') ?> </div>
+    <?php } ?>
+    
+			<img src="<?php echo base_url('assets/lampu.png') ?>" width="39%"
 				style="position: absolute; top: 130; right : 110;">
-			<div class = "always" align= "left">
+			<div class = "always" allign= "left">
 				<h1> Always Care About Your</h1>
 				<h1> Health</h1>
 				<h1> Always Connected.</h1>

@@ -19,7 +19,7 @@
 				  </button>
 				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 					<img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
-					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALTH STORE</a>
+					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALING STORE</a>
 				   </div>
 
 				<div align="right" id="div2">
@@ -31,11 +31,8 @@
 						<a class="nav-link" href="<?=site_url().'/Main/utama'?>" >Menu<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="#">Obat</a>
-					  </li>
-					   <li class="nav-item">
-						<a class="nav-link" href="#">Find</a>
-					  </li>
+						<a class="nav-link" href="<?=site_url('Main/ViewObat')?>">Obat</a>
+	
 					
 					   
 				</ul>

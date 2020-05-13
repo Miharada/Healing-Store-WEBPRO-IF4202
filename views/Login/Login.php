@@ -12,35 +12,36 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/login.css') ?>">
 </head>
 <body>
-<? // Navbar ?>	
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color : red;">
-				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				  </button>
-				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-					<img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
-					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALTH STORE</a>
-				   </div>
+<? // Navbar ?> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="color : red;">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
+          <a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALING STORE</a>
+           </div>
 
-				<div align="right" id="div2">
-				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-					  <li class="nav-item active">
-						<a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
-					  </li>
-					  <li class="nav-item active">
-						<a class="nav-link" href="<?=site_url().'/Main/utama'?>" >Menu<span class="sr-only">(current)</span></a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="#">Obat</a>
-					  </li>
-					   <li class="nav-item">
-						<a class="nav-link" href="#">Find</a>
-					  </li>
-					
-					   
-				</ul>
-				</div>
-		</nav>
+        <div align="right" id="div2">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+            <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="<?=site_url().'/Main/utama'?>" >Menu<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Obat</a>
+            </li>
+             
+          
+             
+        </ul>
+        </div>
+    </nav>
+<?php if ($this->session->flashdata('category_error')) { ?>
+    <div class="alert alert-danger"> <?= $this->session->flashdata('category_error') ?> </div>
+<?php } ?>
 
   <div class="modal-dialog text-center">
     <div class="col-sm-9 main-section">

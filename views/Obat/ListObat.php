@@ -38,7 +38,7 @@
 				  </button>
 				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 					<img src="<?php echo base_url('assets/logo.png') ?>" width="4%"> 
-					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALTH STORE</a>
+					<a class="navbar-brand" href="#" id="brand" style="font-weight: bold; color: red; font-size: 27; font-family: Times New Roman;"> HEALING STORE</a>
 				   </div>
 
 				<div align="right" id="div2">
@@ -50,11 +50,8 @@
 						<a class="nav-link" href="<?=site_url().'/Main/Utama'?>">Menu<span class="sr-only">(current)</span></a>
 					  </li>
 					  <li class="nav-item">
-						<a class="nav-link" href="#">Obat</a>
-					  </li>
-					   <li class="nav-item">
-						<a class="nav-link" href="#">Find</a>
-					  </li>
+						<a class="nav-link" href=""<?=site_url('Main/ViewObat')?>"">Obat</a>
+			
 					  
 					  <li class="nav-item">
 						<a class="nav-link" href="<?=site_url().'/Main/logout'?>" 
@@ -131,6 +128,10 @@
             <label for="formGroupExampleInput2">Deskripsi</label>
 					  <input type="text" class="form-control" id="deskripsi" placeholder="Deskripsi" name="deskripsi" required>
           </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Gambar</label>
+					  <input type="text" class="form-control" id="gambar" placeholder="gambar" name="gambar" required>
+          </div>
 				  </div>
 				  <div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -189,6 +190,10 @@
         <label for="formGroupExampleInput2">Deskripsi</label>
 				<input type="text" class="form-control" id="deskripsi_edit" placeholder="Deskripsi" name="deskripsi_edit" required>
       </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Gambar</label>
+				<input type="text" class="form-control" id="gambar_edit" placeholder="Gambar" name="gambar_edit" required>
+      </div>
 			</div>
 				<div class="modal-footer">
 				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
@@ -241,7 +246,7 @@
                     '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_obat ="'+data[i].id_obat+'"'+
                     'style="color: white; font-size: 15.5;">Hapus</a>' +
                     '<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id_obat= "'+data[i].id_obat+'"'+'data-nama_obat="'+data[i].nama_obat+'"'+
-                    'data-kategori_obat="'+data[i].kategori_obat+'"'+'data-harga_obat="'+data[i].harga_obat+'"'+'data-deskripsi="'+data[i].deskripsi+'"'+'style="color: white; font-size: 15.5;">Edit</a>'+
+                    'data-kategori_obat="'+data[i].kategori_obat+'"'+'data-harga_obat="'+data[i].harga_obat+'"'+'data-deskripsi="'+data[i].deskripsi+'"'+'data-gambar="'+data[i].gambar+'"'+'style="color: white; font-size: 15.5;">Edit</a>'+
                    '</tr>';
            }
            $('#table1').html(html);
@@ -255,16 +260,18 @@
       var kategori_obat = $('#kategori_obat').val();
       var harga_obat = $('#harga_obat').val();
       var deskripsi = $('#deskripsi').val();
+      var gambar = $('#gambar').val();
       $.ajax({
         type : 'POST',
         url : '<?= site_url("Main/tambahObat") ?>',
         dataType : 'JSON',
-        data : {nama_obat:nama_obat, kategori_obat:kategori_obat, harga_obat:harga_obat, deskripsi:deskripsi},
+        data : {nama_obat:nama_obat, kategori_obat:kategori_obat, harga_obat:harga_obat, deskripsi:deskripsi, gambar:gambar},
         success : function(data){
           $('[name="nama_obat"]').val("");
           $('[name="kategori_obat"]').val("");
           $('[name="harga_obat"]').val("");
           $('[name="deskripsi"]').val("");
+          $('[name="gambar"]').val("");
           show_data();
         }
       });
@@ -302,6 +309,7 @@
       var kategori_obat = $(this).data("kategori_obat");
       var harga_obat = $(this).data("harga_obat");
       var deskripsi = $(this).data("deskripsi");
+      var gambar = $(this).data("gambar");
 
       $('#modal-edit').modal('show');
       $('[name="id_obat_edit"]').val(id_obat);
@@ -309,6 +317,7 @@
       $('[name="kategori_obat_edit"]').val(kategori_obat);
       $('[name="harga_obat_edit"]').val(harga_obat);
       $('[name="deskripsi_edit"]').val(deskripsi);
+      $('[name="gambar_edit"]').val(gambar);
     });
 
     //Edit data pegwai
@@ -318,6 +327,7 @@
       var kategori_obat = $('#kategori_obat_edit').val();
       var harga_obat = $('#harga_obat_edit').val();
       var deskripsi = $('#deskripsi_edit').val();
+      var gambar = $('#gambar').val();
       $.ajax({
         type : 'POST',
         url : '<?= site_url("Main/updateObat")?>',
@@ -329,6 +339,7 @@
           $('[name="kategori_obat_edit"]').val("");
           $('[name="harga_obat_edit"]').val("");
           $('[name="deskripsi"]').val("");
+          $('[name="gambar"]').val("");
           $('#modal-edit').modal('hide');
           show_data();
         }
